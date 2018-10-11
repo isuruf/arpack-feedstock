@@ -3,7 +3,7 @@ mkdir build && cd build
 
 cmake -LAH -G"NMake Makefiles"                     ^
   -DCMAKE_PREFIX_PATH="%LIBRARY_PREFIX%"           ^
-  -DCMAKE_Fortran_FLAGS="-Mextend"                 ^
+  -DCMAKE_Fortran_FLAGS="-Mextend -Mpreprocess"    ^
   -DCMAKE_INSTALL_PREFIX="%LIBRARY_PREFIX%" .. 
 if errorlevel 1 exit 1
 
