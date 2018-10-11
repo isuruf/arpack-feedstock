@@ -14,7 +14,7 @@ build:
   number: 1000
   features:
     - blas_{{ variant }}
-  skip: true  # [win]
+  skip: true  # [win and vc<14]
 
 requirements:
   build:
@@ -34,6 +34,7 @@ test:
   commands:
     - test -f ${PREFIX}/lib/libarpack.a  # [unix]
     - test -f ${PREFIX}/lib/libarpack${SHLIB_EXT}  # [unix]
+    - if not exist %PREFIX%\\Library\\lib\\arpack.lib exit 1  # [win]
 
 about:
   home: https://github.com/opencollab/arpack-ng
