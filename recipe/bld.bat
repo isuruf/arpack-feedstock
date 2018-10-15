@@ -1,15 +1,15 @@
 
 mkdir build && cd build
 
-cmake -LAH -G"NMake Makefiles"                     ^
+cmake -LAH -G"Ninja"                               ^
   -DCMAKE_PREFIX_PATH="%LIBRARY_PREFIX%"           ^
   -DCMAKE_Fortran_FLAGS="-Mextend -Mpreprocess"    ^
   -DCMAKE_INSTALL_PREFIX="%LIBRARY_PREFIX%" .. 
 if errorlevel 1 exit 1
 
-cmake --build . --config Release --target install
+ninja -v
 if errorlevel 1 exit 1
 
-ctest --output-on-failure --timeout 100
+ninja install
 if errorlevel 1 exit 1
 

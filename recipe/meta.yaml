@@ -22,6 +22,7 @@ requirements:
     - {{ compiler('fortran') }}
     - {{ compiler('c') }}
     - {{ compiler('cxx') }}
+    - ninja
   host:
     - blas 1.1 {{ variant }}
     - openblas  # [not win]
